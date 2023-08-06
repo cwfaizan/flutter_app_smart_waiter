@@ -15,21 +15,15 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 35.h,
+                height: 60.h,
               ),
-              Row(
-                children: [
-                  Text(
-                    "Hello Customer 👋",
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.w700,
-                      color: const Color(0xff2F2F2F),
-                    ),
-                  ),
-                  const Spacer(),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.search))
-                ],
+              Text(
+                "Hello Customer 👋",
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xff2F2F2F),
+                ),
               ),
               SizedBox(
                 height: 7.h,
@@ -45,52 +39,10 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 24.h,
               ),
-              Stack(
-                children: [
-                  Image.asset("assets/images/co.png"),
-                  Image.asset("assets/images/con.png"),
-                  Positioned(
-                    top: 20.h,
-                    left: 35.w,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Order Delisious and Variant Food",
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w700,
-                            color: const Color(0xff000000),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Your Delivery will be On Time",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: const Color(0xff000000),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 30.w,
-                            ),
-                            const Icon(
-                              Icons.thumb_up,
-                              color: Color(0xffFD451C),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              TextFormField(
+                decoration: const InputDecoration(
+                    hintText: "What would you like to eat?",
+                    prefixIcon: Icon(Icons.search)),
               ),
               SizedBox(
                 height: 24.h,
@@ -112,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        "assets/images/1.png",
+                        "assets/images/burger.png",
                         height: 60.h,
                         width: 60,
                       ),
@@ -129,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        "assets/images/2.png",
+                        "assets/images/meat.png",
                         height: 60.h,
                         width: 60,
                       ),
@@ -146,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        "assets/images/3.png",
+                        "assets/images/sandwich.png",
                         height: 60.h,
                         width: 60,
                       ),
@@ -163,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        "assets/images/4.png",
+                        "assets/images/cofee.png",
                         height: 60.h,
                         width: 60,
                       ),
@@ -180,7 +132,7 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        "assets/images/5.png",
+                        "assets/images/icecream.png",
                         height: 60.h,
                         width: 60,
                       ),
@@ -197,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 30.h,
+                height: 24.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -221,7 +173,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 10.h,
+                height: 1.h,
               ),
               Text(
                 "Order Now",
@@ -232,14 +184,14 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30.h,
+                height: 16.h,
               ),
               Container(
-                height: 290.h,
+                height: 300.h,
                 width: double.maxFinite,
                 color: const Color(0xffffffff),
                 child: SizedBox(
-                  height: 290.h,
+                  height: 300.h,
                   width: 200.w,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,

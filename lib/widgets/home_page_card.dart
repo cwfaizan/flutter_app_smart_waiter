@@ -12,13 +12,14 @@ class HomePageCard extends StatelessWidget {
     return Center(
       child: Container(
         width: 200.w,
-        height: 290.h,
+        height: 300.h,
         // padding: REdgeInsets.all(16),
         decoration: ShapeDecoration(
           color: const Color(0xffFFFFFF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),
-            side: const BorderSide(width: 0, color:  Color.fromARGB(40, 0, 0, 0)),
+            side:
+                const BorderSide(width: 0, color: Color.fromARGB(40, 0, 0, 0)),
           ),
         ),
         child: Column(

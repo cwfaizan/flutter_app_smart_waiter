@@ -94,15 +94,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     Padding(
                       padding: EdgeInsets.only(right: 20.w),
                       child: SizedBox(
-                        height: 56.h,
                         width: 106.w,
                         child: FilledButton(
-                            style: FilledButton.styleFrom(
-                              backgroundColor: const Color(0xffFD451C),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.r),
-                              ),
-                            ),
                             onPressed: () {
                               if (pageController.page!.toInt() > 1) {
                                 // Navigator.of(context).pushReplacement(
@@ -118,12 +111,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 );
                               }
                             },
-                            child: Text(
+                            child: const Text(
                               "Next",
-                              style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w700,
-                                  color: const Color(0xffffffff)),
                             )),
                       ),
                     ),
