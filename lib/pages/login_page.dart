@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'reset_phone_number_password.dart';
 import 'sign_up_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -17,7 +18,7 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 48.h,
+                height: 92.h,
               ),
               Text(
                 "Hi! Welcome back",
@@ -42,29 +43,13 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 width: double.maxFinite,
                 child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
                   // obscureText: true,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                        borderSide: const BorderSide(
-                            color: Color(0xffFD451C), width: 1)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                        borderSide: BorderSide(
-                            color: const Color(0xffDFE1E8), width: 1.w)),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 22.w, vertical: 17.h),
-                    filled: true,
-                    fillColor: const Color(0xffFFFFFF),
+                  decoration: const InputDecoration(
                     hintText: "Type your Number",
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.phone,
-                      color: Color(0xff7E8CA0),
-                    ),
-                    hintStyle: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xff7E8CA0),
                     ),
                   ),
                 ),
@@ -78,33 +63,13 @@ class LoginPage extends StatelessWidget {
                   // obscureText: true,
                   obscureText: true,
                   textInputAction: TextInputAction.done,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(0.r),
-                        borderSide: const BorderSide(
-                            color: Colors.transparent, width: 0)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                        borderSide: BorderSide(
-                            color: const Color(0xffDFE1E8), width: 1.w)),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 22.w, vertical: 17.h),
-                    filled: true,
-                    fillColor: const Color(0xffFFFFFF),
+                  decoration: const InputDecoration(
                     hintText: "Type your password",
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.lock,
-                      color: Color(0xff7E8CA0),
                     ),
-                    // suffixIcon: SvgPicture.asset(
-                    //   "assets/svgs/eye.svg",
-                    //   height: 12.h,
-                    //   width: 12.w,
-                    // ),
-                    hintStyle: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xff7E8CA0),
+                    suffixIcon: Icon(
+                      Icons.visibility_off,
                     ),
                   ),
                 ),
@@ -112,14 +77,15 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 16.h,
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 215.w),
+              Align(
+                alignment: Alignment.centerRight,
                 child: InkWell(
                   onTap: () {
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const ForgotPassward()),
-                    // );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const ResetPhoneNoPasswordPage()),
+                    );
                   },
                   child: Text(
                     "Forgot Password?",
@@ -135,22 +101,11 @@ class LoginPage extends StatelessWidget {
                 height: 20.h,
               ),
               SizedBox(
-                height: 56.h,
                 width: double.maxFinite,
                 child: FilledButton(
-                    style: FilledButton.styleFrom(
-                      backgroundColor: const Color(0xffFD451C),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                      ),
-                    ),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Sign In",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w700,
-                          color: const Color(0xffffffff)),
                     )),
               ),
               SizedBox(
@@ -185,23 +140,13 @@ class LoginPage extends StatelessWidget {
                 height: 56.h,
                 width: double.maxFinite,
                 child: TextButton.icon(
-                  style: TextButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(color: Color(0xff191A26)),
-                      borderRadius: BorderRadius.circular(30.r),
-                    ),
-                  ),
                   onPressed: () {},
                   icon: const Icon(
                     Icons.apple_rounded,
                     color: Colors.black,
                   ),
-                  label: Text(
+                  label: const Text(
                     "Sign In with Apple",
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xff191A26)),
                   ),
                 ),
               ),
@@ -209,23 +154,12 @@ class LoginPage extends StatelessWidget {
                 height: 31.h,
               ),
               SizedBox(
-                height: 56.h,
                 width: double.maxFinite,
                 child: TextButton.icon(
-                  style: TextButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(color: Color(0xff191A26)),
-                      borderRadius: BorderRadius.circular(30.r),
-                    ),
-                  ),
                   onPressed: () {},
                   icon: SvgPicture.asset("assets/svgs/google.svg"),
-                  label: Text(
+                  label: const Text(
                     "Sign In with Google",
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xff191A26)),
                   ),
                 ),
               ),
@@ -237,14 +171,14 @@ class LoginPage extends StatelessWidget {
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Don’t have an account?",
+                    "Don’t have an account? ",
                     style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff191A26)),
                   ),
-                  TextButton(
-                    onPressed: () {
+                  InkWell(
+                    onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => const SignUpPage(),
@@ -302,6 +236,9 @@ class LoginPage extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+              SizedBox(
+                height: 16.h,
               ),
             ],
           ),

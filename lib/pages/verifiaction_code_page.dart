@@ -99,23 +99,13 @@ class OtpVerificationPage extends StatelessWidget {
                 height: 80.h,
               ),
               SizedBox(
-                height: 56.h,
                 width: double.maxFinite,
                 child: FilledButton(
-                    style: FilledButton.styleFrom(
-                      backgroundColor: const Color(0xffFD451C),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Continue",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w700,
-                          color: const Color(0xffffffff)),
-                    )),
+                  onPressed: () {},
+                  child: const Text(
+                    "Continue",
+                  ),
+                ),
               ),
               // data = jsonData.entoString()
               // print(entryList[0].key);

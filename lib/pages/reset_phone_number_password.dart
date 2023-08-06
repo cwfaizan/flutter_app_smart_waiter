@@ -18,7 +18,10 @@ class ResetPhoneNoPasswordPage extends StatelessWidget {
                   height: 40.h,
                 ),
                 IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.arrow_back_ios)),
                 SizedBox(
                   height: 30.h,
                 ),
@@ -49,28 +52,10 @@ class ResetPhoneNoPasswordPage extends StatelessWidget {
                   width: double.maxFinite,
                   child: TextFormField(
                     // obscureText: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                          borderSide: const BorderSide(
-                              color: Color(0xffFD451C), width: 1)),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                          borderSide: BorderSide(
-                              color: const Color(0xffDFE1E8), width: 1.w)),
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 22.w, vertical: 17.h),
-                      filled: true,
-                      fillColor: const Color(0xffFFFFFF),
+                    decoration: const InputDecoration(
                       hintText: "Type your Number",
-                      prefixIcon: const Icon(
+                      prefixIcon: Icon(
                         Icons.phone,
-                        color: Color(0xff7E8CA0),
-                      ),
-                      hintStyle: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff7E8CA0),
                       ),
                     ),
                   ),
@@ -79,23 +64,13 @@ class ResetPhoneNoPasswordPage extends StatelessWidget {
                   height: 400.h,
                 ),
                 SizedBox(
-                  height: 56.h,
                   width: double.maxFinite,
                   child: FilledButton(
-                      style: FilledButton.styleFrom(
-                        backgroundColor: const Color(0xffFD451C),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        "Send Link",
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w700,
-                            color: const Color(0xffffffff)),
-                      )),
+                    onPressed: () {},
+                    child: const Text(
+                      "Send Link",
+                    ),
+                  ),
                 ),
                 // data = jsonData.entoString()
                 // print(entryList[0].key);

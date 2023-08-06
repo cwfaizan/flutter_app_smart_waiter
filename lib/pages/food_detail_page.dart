@@ -15,7 +15,7 @@ class FoodDetailPage extends StatelessWidget {
             height: 706.h,
             width: double.maxFinite,
             decoration: BoxDecoration(
-              color: Color(0XFFFFFFFF),
+              color: const Color(0XFFFFFFFF),
               borderRadius: BorderRadius.circular(30.r),
             ),
             child: Padding(
@@ -62,7 +62,9 @@ class FoodDetailPage extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      
+                      const Column(children:  [
+
+                      ],),
                       Image.asset(
                         "assets/images/i.png",
                         height: 300.h,
