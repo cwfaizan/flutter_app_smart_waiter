@@ -25,13 +25,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder: (context, child) => const MaterialApp(
+      builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         themeMode: ThemeMode.system,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFD451C)),
+          useMaterial3: true,
+        ),
         // theme: lightThemeData,
         // darkTheme: darkThemeData,
-        home: FoodDetailPage(),
+        home: LoginPage(),
       ),
       designSize: const Size(375, 812),
     );
