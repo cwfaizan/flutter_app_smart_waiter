@@ -3,10 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:smart_waiter/themes/theme_mode.dart';
 
-import 'pages/food_detail_page.dart';
-import 'pages/password_change_success.dart';
-import 'pages/payment_page.dart';
-import 'pages/profile_edit_page.dart';
+import 'pages/home_screen.dart';
 
 // import 'pages/transaction_page_sheet.dart';
 
@@ -29,7 +26,7 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: lightThemeData,
         darkTheme: darkThemeData,
-        home: const FoodDetailPage(),
+        home: const HomeScreen(),
       ),
       designSize: const Size(375, 812),
     );

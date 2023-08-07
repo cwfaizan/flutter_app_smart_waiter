@@ -1,14 +1,112 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../widgets/favourite_card.dart';
+import 'home_screen.dart';
+import 'my_cart_page.dart';
+import 'profile_edit_page.dart';
 
-class FavouritePage extends StatelessWidget {
+class FavouritePage extends StatefulWidget {
   const FavouritePage({super.key});
+
+  @override
+  State<FavouritePage> createState() => _FavouritePageState();
+}
+
+class _FavouritePageState extends State<FavouritePage> {
+  int selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
+                },
+                child: const Icon(
+                  Icons.home,
+                  size: 24,
+                )),
+            // backgroundColor: const Color(0xff503E9D),
+            label: 'home',
+          ),
+          BottomNavigationBarItem(
+            icon: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => const FavouritePage()),
+                  );
+                },
+                child: const Icon(
+                  FontAwesomeIcons.heart,
+                  size: 24,
+                )),
+            // backgroundColor: const Color(0xff503E9D),
+            label: 'like',
+          ),
+          BottomNavigationBarItem(
+            icon: InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context) => const FavouritePage()),
+                );
+              },
+              child: SvgPicture.asset("assets/svgs/bag.svg"),
+            ),
+            // backgroundColor: const Color(0xff503E9D),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const CartPage()),
+                );
+              },
+              child: const Icon(Icons.shopping_cart),
+            ),
+            // backgroundColor: const Color(0xff503E9D),
+            label: 'cart',
+          ),
+          BottomNavigationBarItem(
+            icon: InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileEditPage()),
+                );
+              },
+              child: const Icon(Icons.person),
+            ),
+            // backgroundColor: const Color(0xff503E9D),
+            label: 'profile',
+          ),
+        ],
+        selectedIconTheme: const IconThemeData(
+          color: Color(0xff000000),
+        ),
+        type: BottomNavigationBarType.fixed,
+        currentIndex: selectedIndex,
+        // selectedItemColor: const Color(0xff503E9D),
+        iconSize: 24,
+        onTap: _onItemTapped,
+        // elevation: 5,
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -82,7 +180,10 @@ class FavouritePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 630.h,
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 525.h,
                 child: GridView.count(
                     crossAxisCount: 2,
                     crossAxisSpacing: 11.w,
