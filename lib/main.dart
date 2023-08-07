@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:smart_waiter/pages/login_page.dart';
 import 'package:smart_waiter/themes/theme_mode.dart';
 
 import 'pages/food_detail_page.dart';
-import 'pages/home_screen.dart';
+import 'pages/password_change_success.dart';
+import 'pages/payment_page.dart';
+import 'pages/profile_edit_page.dart';
 
 // import 'pages/transaction_page_sheet.dart';
 
