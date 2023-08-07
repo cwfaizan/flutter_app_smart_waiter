@@ -20,7 +20,9 @@ class PaymentPage extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   // ignore: prefer_const_constructors
                   icon: Icon(Icons.arrow_back_ios),
                 ),

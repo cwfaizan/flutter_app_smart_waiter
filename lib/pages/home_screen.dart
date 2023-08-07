@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_waiter/pages/favourite_page.dart';
+import 'package:smart_waiter/pages/food_detail_page.dart';
 import 'package:smart_waiter/pages/my_cart_page.dart';
 import 'package:smart_waiter/pages/profile_edit_page.dart';
 import 'package:smart_waiter/widgets/home_page_card.dart';
@@ -60,15 +61,15 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: InkWell(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context) => const FavouritePage()),
-                );
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //       builder: (context) => const FavouritePage()),
+                // );
               },
-              child: SvgPicture.asset("assets/svgs/bag.svg"),
+              child: SvgPicture.asset("assets/svgs/bags.svg"),
             ),
             // backgroundColor: const Color(0xff503E9D),
-            label: '',
+            label: 'Main',
           ),
           BottomNavigationBarItem(
             icon: InkWell(
@@ -96,6 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'profile',
           ),
         ],
+        // selectedLabelStyle: TextStyle(fontSize: 14.sp, color: Colors.black),
+        // unselectedLabelStyle: TextStyle(fontSize: 14.sp, color: Colors.black),
         selectedIconTheme: const IconThemeData(
           color: Color(0xff000000),
         ),
@@ -145,13 +148,33 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 24.h,
               ),
-              Text(
-                "Category",
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xff191A26),
-                ),
+              Row(
+                children: [
+                  Text(
+                    "Category",
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w700,
+                      color: const Color(0xff191A26),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const FoodDetailPage()),
+                      );
+                    },
+                    child: Text(
+                      "See Detail",
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xffFD451C),
+                      ),
+                    ),
+                  )
+                ],
               ),
               SizedBox(
                 height: 16.h,

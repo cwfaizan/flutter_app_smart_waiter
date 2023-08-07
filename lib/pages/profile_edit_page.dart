@@ -15,7 +15,7 @@ class ProfileEditPage extends StatefulWidget {
 }
 
 class _ProfileEditPageState extends State<ProfileEditPage> {
-  int selectedIndex = 5;
+  int selectedIndex = 4;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -65,10 +65,10 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                       builder: (context) => const FavouritePage()),
                 );
               },
-              child: SvgPicture.asset("assets/svgs/bag.svg"),
+              child: SvgPicture.asset("assets/svgs/bags.svg"),
             ),
             // backgroundColor: const Color(0xff503E9D),
-            label: '',
+            label: 'Main',
           ),
           BottomNavigationBarItem(
             icon: InkWell(
