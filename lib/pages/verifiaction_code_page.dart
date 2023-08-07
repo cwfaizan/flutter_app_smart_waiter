@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpVerificationPage extends StatelessWidget {
-  const OtpVerificationPage({super.key});
+  const OtpVerificationPage({super.key, required this.data});
+  final Map<String, dynamic> data;
 
   @override
   Widget build(BuildContext context) {

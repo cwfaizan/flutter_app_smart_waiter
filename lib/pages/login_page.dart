@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_waiter/utils/utility.dart';
 
 import 'reset_phone_number_password.dart';
 import 'sign_up_page.dart';
@@ -45,7 +46,6 @@ class LoginPage extends StatelessWidget {
                 child: TextFormField(
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.next,
-                  // obscureText: true,
                   decoration: const InputDecoration(
                     hintText: "Type your Number",
                     prefixIcon: Icon(
@@ -140,13 +140,15 @@ class LoginPage extends StatelessWidget {
                 height: 56.h,
                 width: double.maxFinite,
                 child: TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Utility.updateMessage(context, 'Coming soon');
+                  },
                   icon: const Icon(
                     Icons.apple_rounded,
                     color: Colors.black,
                   ),
                   label: const Text(
-                    "Sign In with Apple",
+                    "Sign in with Apple",
                   ),
                 ),
               ),
@@ -156,10 +158,12 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 width: double.maxFinite,
                 child: TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Utility.updateMessage(context, 'Coming soon');
+                  },
                   icon: SvgPicture.asset("assets/svgs/google.svg"),
                   label: const Text(
-                    "Sign In with Google",
+                    "Sign in with Google",
                   ),
                 ),
               ),
@@ -179,9 +183,9 @@ class LoginPage extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).push(
+                      Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => const SignUpPage(),
+                          builder: (context) => SignUpPage(),
                         ),
                       );
                     },
@@ -247,4 +251,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-// Terms and Privacy Policy
