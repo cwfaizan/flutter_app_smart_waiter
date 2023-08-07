@@ -1,10 +1,23 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
+import 'package:smart_waiter/pages/login_page.dart';
+import 'package:smart_waiter/utils/utility.dart';
 
-class OtpVerificationPage extends StatelessWidget {
+import '../utils/network_client.dart';
+
+class OtpVerificationPage extends StatefulWidget {
   const OtpVerificationPage({super.key, required this.data});
   final Map<String, dynamic> data;
+
+  @override
+  State<OtpVerificationPage> createState() => _OtpVerificationPageState();
+}
+
+class _OtpVerificationPageState extends State<OtpVerificationPage> {
+  String? pinMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +68,7 @@ class OtpVerificationPage extends StatelessWidget {
               ),
               Center(
                   child: Text(
-                "Please enter the verification code that we have sent to your phone number",
+                "Please enter the verification ${widget.data['pin_message']}",
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
@@ -78,26 +91,44 @@ class OtpVerificationPage extends StatelessWidget {
                   // },
                   pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                   showCursor: true,
-                  // onCompleted: (pin) => submitForm(context),
+                  onCompleted: (pin) {
+                    _verifyPin(context, pin);
+                  },
                 ),
               ),
+              if (pinMessage != null)
+                SizedBox(
+                  height: 20.h,
+                ),
+              if (pinMessage != null)
+                Center(
+                  child: Text(
+                    pinMessage!,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xffFD451C),
+                    ),
+                  ),
+                ),
               SizedBox(
-                height: 24.h,
+                height: 50.h,
               ),
               Center(
-                child: TextButton(
-                  onPressed: () {},
+                child: InkWell(
+                  onTap: () {},
                   child: Text(
                     "Resend Code",
                     style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: const Color(0xffFD451C)),
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xffFD451C),
+                    ),
                   ),
                 ),
               ),
               SizedBox(
-                height: 80.h,
+                height: 50.h,
               ),
               SizedBox(
                 width: double.maxFinite,
@@ -117,5 +148,46 @@ class OtpVerificationPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _verifyPin(BuildContext context, String pin) async {
+    pinMessage = null;
+    final res = await NetworkClient().get(
+      'api/verify-pin',
+      queryParameters: {
+        'item': widget.data['item'],
+        'pin_type': widget.data['pin_type'],
+        'pin': pin,
+      },
+    );
+    if (res.statusCode == 200) {
+      final createRes = await NetworkClient().post(
+        'api/signup',
+        bodyParameters: {
+          'name': widget.data['name'],
+          'contact_no': widget.data['item'],
+          'password': widget.data['password'],
+          'password_confirmation': widget.data['password'],
+          'account_type': widget.data['account_type'],
+        },
+      );
+      if (createRes.statusCode == 201) {
+        // ignore: use_build_context_synchronously
+        Utility.updateMessage(context, 'Account successfully created');
+        // ignore: use_build_context_synchronously
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const LoginPage(),
+            ),
+            result: (Route<dynamic> route) => false);
+      }
+    } else if (res.statusCode == 422) {
+      Map<String, dynamic> mp = json.decode(res.toString());
+      Map<String, dynamic> errors = mp['errors'];
+      if (errors.containsKey('pin_message')) {
+        pinMessage = errors['pin_message'][0];
+      }
+      setState(() {});
+    }
   }
 }
