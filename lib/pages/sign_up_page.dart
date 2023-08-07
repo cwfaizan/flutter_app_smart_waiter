@@ -9,7 +9,7 @@ import 'package:smart_waiter/utils/utility.dart';
 import 'otp_verifiaction_page.dart';
 
 class SignUpPage extends StatefulWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();

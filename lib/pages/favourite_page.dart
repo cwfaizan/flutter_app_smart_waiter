@@ -66,10 +66,10 @@ class _FavouritePageState extends State<FavouritePage> {
                       builder: (context) => const FavouritePage()),
                 );
               },
-              child: SvgPicture.asset("assets/svgs/bag.svg"),
+              child: SvgPicture.asset("assets/svgs/bags.svg"),
             ),
             // backgroundColor: const Color(0xff503E9D),
-            label: '',
+            label: 'Main',
           ),
           BottomNavigationBarItem(
             icon: InkWell(
@@ -113,7 +113,7 @@ class _FavouritePageState extends State<FavouritePage> {
           child: Column(
             children: [
               SizedBox(
-                height: 68.h,
+                height: 24.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -183,7 +183,7 @@ class _FavouritePageState extends State<FavouritePage> {
                 height: 20.h,
               ),
               SizedBox(
-                height: 525.h,
+                height: 540.h,
                 child: GridView.count(
                     crossAxisCount: 2,
                     crossAxisSpacing: 11.w,

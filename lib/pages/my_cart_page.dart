@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:smart_waiter/pages/payment_page.dart';
 import 'package:smart_waiter/widgets/cart_page_content.dart';
 
 import 'favourite_page.dart';
@@ -16,7 +17,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  int selectedIndex = 4;
+  int selectedIndex = 3;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -66,10 +67,10 @@ class _CartPageState extends State<CartPage> {
                       builder: (context) => const FavouritePage()),
                 );
               },
-              child: SvgPicture.asset("assets/svgs/bag.svg"),
+              child: SvgPicture.asset("assets/svgs/bags.svg"),
             ),
             // backgroundColor: const Color(0xff503E9D),
-            label: '',
+            label: 'Main',
           ),
           BottomNavigationBarItem(
             icon: InkWell(
@@ -118,7 +119,7 @@ class _CartPageState extends State<CartPage> {
             Row(
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {  Navigator.pop(context);},
                   child: const Icon(Icons.arrow_back_ios),
                 ),
                 SizedBox(
@@ -179,7 +180,7 @@ class _CartPageState extends State<CartPage> {
               height: 40.h,
             ),
             Container(
-              height: 425.h,
+              height: 370.h,
               width: double.maxFinite,
               color: const Color(0xffffffff),
               child: SizedBox(
@@ -194,18 +195,30 @@ class _CartPageState extends State<CartPage> {
               ),
             ),
             SizedBox(
+              height: 25.h,
+            ),
+            SizedBox(
               width: double.maxFinite,
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => const PaymentPage()),
+                  );
+                },
                 child: const Text("Checkout"),
               ),
             ),
             SizedBox(
-              height: 24.h,
+              height: 10.h,
             ),
             Center(
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
+                },
                 child: Text(
                   "Add more items",
                   style: TextStyle(
